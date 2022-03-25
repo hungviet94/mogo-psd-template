@@ -1,0 +1,63 @@
+.team {
+    padding-bottom: 10rem;
+    &-info {
+        margin-top: 3rem;
+        text-align: center;
+    
+    }
+    &-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 3rem;
+    }
+    &-name {
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+        font-weight: 500;
+    }
+    &-position {
+        font-size: 1.5rem;
+        font-weight: 300;
+        font-style: italic;
+        color: $text-color;
+    }
+    
+    &-image {
+        @include size(100%);
+        object-fit: cover;
+    }
+    &-social {
+        @include flexbox(center, center)
+    }
+    &-social-link {
+        @include size(5rem);
+        @include flexbox(center, center);
+        color: $primary-color;
+        font-size: 2rem;
+        @include bg($secondary-color);
+        transition: all 0.25s linear;
+        &:hover {
+            color: white;
+            @include bg($primary-color);
+        }
+    }
+    &-social-item:not(:first-child) {
+        border-left: 1px solid $primary-color;
+    }
+    @include maxWidth(767px) {
+        &-list {
+            @include touchSlider(50%);
+        }
+        padding-bottom: 3rem;
+    }
+
+}
+.brand{
+    padding: 8rem 0;
+    @include bg($gray-color);
+    @include maxWidth(767px){
+        padding: 3rem 0;
+    }
+}
+@include hoverEffect(".team-main",".team-content");
+
